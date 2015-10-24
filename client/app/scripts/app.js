@@ -25,10 +25,25 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'loginCtrl'
+      })
+      .when('/student/enrol', {
+        templateUrl: 'views/student/enrol.html',
+        controller: 'EnrolCtrl',
+        controllerAs: 'enrolCtrl'
+      })
+      .when('/prof/dashboard', {
+        templateUrl: 'views/prof/dashboard.html',
+        controller: 'DashboardCtrl',
+        controllerAs: 'dashboardCtrl'
+      })
+      .when('/student/interact', {
+        templateUrl: 'views/student/interact.html',
+        controller: 'InteractCtrl',
+        controllerAs: 'interactCtrl'
       })
       .otherwise({
         redirectTo: '/'
