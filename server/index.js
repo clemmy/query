@@ -7,8 +7,23 @@ import db from './db';
 import middleware from './middleware';
 import api from './api';
 
+// var app = require('express')();
+// var http = require('http').Server(app);
+// var io = require('socket.io')(http);
+
 var app = express();
 app.server = http.createServer(app);
+var io = require('socket.io')(app.server);
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+
+	socket.on('chat message', function(msg){
+		console.log(msg);
+	});
+});
+
+
 
 // 3rd party middleware
 app.use(cors({
