@@ -7,10 +7,6 @@ import db from './db';
 import middleware from './middleware';
 import api from './api';
 
-// var app = require('express')();
-// var http = require('http').Server(app);
-// var io = require('socket.io')(http);
-
 var app = express();
 app.server = http.createServer(app);
 var io = require('socket.io')(app.server);
@@ -51,7 +47,7 @@ db( λ => {
 
 	app.server.listen(process.env.PORT || 8080);
 
-	console.log(`Started on port ${app.server.address().port}`);
+	console.log('Started on port ${app.server.address().port}');
 });
 
 export default app;
