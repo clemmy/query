@@ -19,7 +19,7 @@ app.use(bodyParser.json({
 	limit : '100kb'
 }));
 
-app.use('/', express.static(path.join(__dirname, '../client')));
+app.use('/', express.static(path.join(__dirname, '../client/dist')));
 
 // connect to db
 db( λ => {
@@ -31,7 +31,7 @@ db( λ => {
 	app.use('/api', api());
 
 	app.get('*', function (req, res) {
-      res.sendFile(path.join(__dirname, '../client/index.html'));
+      res.sendFile(path.join(__dirname, '../client/dist/index.html'));
   });
 
 	app.server.listen(process.env.PORT || 8080);
