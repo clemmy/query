@@ -30,8 +30,8 @@ angular
         controller: 'LoginCtrl',
         controllerAs: 'loginCtrl'
       })
-      .when('/student/enrol', {
-        templateUrl: 'views/student/enrol.html',
+      .when('/enrol', {
+        templateUrl: 'views/enrol.html',
         controller: 'EnrolCtrl',
         controllerAs: 'enrolCtrl'
       })

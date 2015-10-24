@@ -47,6 +47,7 @@ body {
   margin: 30px 0;
 }
 
+
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
@@ -67,10 +68,102 @@ body {
   }
 }
 
+label {
+  font-weight: lighter;
+}
+
+.panel-title {
+  font-weight: lighter;
+}
+
+.identity {
+  font-size: 20px;
+  width: 300px;
+}
+
+.btn {
+  font-size: 18px;
+  display: inline-block;
+  padding: 15px 30px;
+  color: white;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  background: transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.btn:hover, .btn:focus {
+  color: white;
+}
+.btn.btn-blue {
+  background: #00BCD4;
+  border-color: #fff;
+  border-width: thick;
+  font-weight: bold;
+}
+.btn.btn-blue:hover {
+  background: #00838F;
+}
+.btn.btn-blue-fill {
+  color: #00838F;
+  border-color: #00a8ff;
+  background: transparent;
+}
+.btn.btn-blue-fill:hover {
+  color: white;
+  background: #00a8ff;
+}
+.btn.btn-white-fill {
+  color: #fff;
+  border-color: #fff;
+  border-width: medium;
+  font-weight: bold;
+}
+.btn.btn-white-fill:hover {
+  color: #fff;
+  font-weight: bold;
+  background: #4DD0E1;
+}
+.btn.btn-darkblue-fill {
+  color: #fff;
+  font-weight: bold;
+  border-color: #fff;
+  border-width: thick;
+  background: #00B8D4;
+}
+.btn.btn-darkblue-fill:hover {
+  color: #0081c4;
+  border-color: #0081c4;
+  background: #fff;
+}
+.btn.btn-gray-fill {
+  color: #fff;
+  border-color: #fff;
+  background: transparent;
+}
+.btn.btn-gray-fill:hover {
+  border-color: #bbb;
+  background: #bbb;
+}
+::-moz-selection {
+  text-shadow: none;
+  color: #fff;
+  background: #222;
+}
+::selection {
+  text-shadow: none;
+  color: #fff;
+  background: #222;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
     max-width: 730px;
+  }
+  .container-wide {
+   width: 90%;
+
   }
 
   /* Remove the padding we set earlier */

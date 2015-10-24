@@ -1,1 +1,90 @@
-interact
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header text-center">Ask a Question</h1>
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+
+      </div>
+      <!-- /.panel-heading -->
+      <form ng-submit="addQuestion()">
+        <div class='content'>
+          <div class='form' role="form" ng-submit="addQuestion()">
+
+            <div class="row">
+              <div class="col-lg-12 form-group">
+                <div class="large-padded-row">
+                  <style>
+                    .form-control {
+                      outline: 0;
+                      border-color: #000;
+                      border-style: solid;
+                      border-width: 2px;
+                      width: 95%;
+                      background-color: #ffffff;
+                      padding: 6px;
+                      border-radius: 2px;
+                      margin-bottom: 5px;
+                      font-size: 14px;
+                    }
+
+                    .form-control-small {
+                      -webkit-transition: width .5s ease-in-out;
+                      -moz-transition: width .5s ease-in-out;
+                      -o-transition: width .5s ease-in-out;
+                      -ms-transition: width .5s ease-in-out;
+                      transition: width .5s ease-in-out;
+                      width: 72%;
+                    }
+
+                    .form-control:-webkit-autofill {
+                      background-color: #fff !important;
+                    }
+
+                    .form-control-fill {
+                      width: 96%;
+                    }
+
+                    #types_dropdown {
+                      overflow-y: hidden;
+                      max-height: 150px;
+                      border: 2px;
+                    }
+
+                    input:-webkit-autofill {
+                      -webkit-box-shadow: 0 0 0px 1000px white inset;
+                    }
+
+                    textarea {
+                      min-height: 200px;
+                    }
+                  </style>
+                </div>
+
+                <div class="col-lg-12 form-group">
+                  <div class="large-padded-row">
+                    <br>
+                    <textarea ng-model="InteractCtrl.formData.question" type="unitPrice" class="form-control" id="question" placeholder="Ask a question here..."></textarea>
+                  </div>
+                </div>
+
+
+
+                <div class='col-md-12 form-group'>
+                  <br>
+                  <center><button type="submit" class="btn btn-blue">Submit</button></center>
+                </div>
+                </footer>
+              </div>
+      </form>
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

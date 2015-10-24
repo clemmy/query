@@ -1,1 +1,29 @@
-login
+<div class="row">
+  <div class="col-md-12">
+    <div class="login-panel panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Please Login Below</h3>
+      </div>
+      <div class="panel-body">
+        <form role="form" ng-controller="loginCtrl" ng-submit="login()">
+          <fieldset>
+            <div class="form-group">
+              <input type="username" class="form-control" id="username" ng-model="username" placeholder="ex. jhylee95" autofocus required>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="pwd" ng-model="password" placeholder="Your Password" required>
+            </div>
+
+            <div class="form-group">
+              <label>Don't have an account? <a ng-href="#/enrol">Sign Up</a> Today!</label>
+            </div>
+
+            <!-- Change this to a button or input when using this as a form -->
+            <center><button type="submit" class="btn btn-blue">Submit</button></center>
+            <!-- <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a> -->
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
