@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import db from './db';
 import middleware from './middleware';
 import api from './api';
+import request from 'superagent';
 
 var app = express();
 app.server = http.createServer(app);
@@ -14,8 +15,8 @@ var io = require('socket.io')(app.server);
 io.on('connection', function(socket){
   console.log('a user connected');
 
-	socket.on('chat message', function(msg){
-		console.log(msg);
+	socket.on('init-message', function(msg){
+		// expect room name (class)
 	});
 });
 
@@ -51,3 +52,12 @@ db( λ => {
 });
 
 export default app;
+
+function executeQuery(queryString, cb) {
+	request
+		.post('https://api-us.clusterpoint.com/v4/102304/HackingEDU2015/_query')
+		.set('Content-Type', 'application/text')
+		.auth('clement.hoang24@gmail.com', 'ClusterpointClem123')
+		.send(queryString)
+		.end(cb);
+}
