@@ -53,8 +53,16 @@ angular
   .factory('socket', function (socketFactory) {
     return socketFactory();
   })
-  .run(function($rootScope, $location) {
+  .run(function($rootScope, $location, auth) {
     $rootScope.getCurrentLocation = function() {
       return $location.path();
+    };
+
+    $rootScope.getUserRole = function() {
+      return auth.user.userRole;
+    };
+
+    $rootScope.isLoggedIn = function() {
+      return auth.user.authenticated;
     }
   });

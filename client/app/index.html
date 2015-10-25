@@ -43,13 +43,13 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
             <ul class="nav navbar-nav">
               <li ng-class="{'active' : getCurrentLocation() === '/prof/dashboard'}">
-                <a ng-href = "#/prof/dashboard" href = "javascript:void(0)">Dashboard</a>
+                <a ng-href = "#/prof/dashboard" href = "javascript:void(0)" ng-hide="(getUserRole() === 'student') || !isLoggedIn()">Dashboard</a>
               </li>
               <li ng-class = "{'active' : getCurrentLocation() === '/student/interact'}">
-                <a ng-href="#/student/interact" href = "javascript:void(0)">Ask a Question</a>
+                <a ng-href="#/student/interact" href = "javascript:void(0)" ng-hide="(getUserRole() === 'prof') || !isLoggedIn()">Ask a Question</a>
               </li>
               <li ng-class = "{'active' : getCurrentLocation() === '/login'}">
-                <a ng-href="#/login" href = "javascript:void(0)">Log In</a></li>
+                <a ng-href="#/login" href = "javascript:void(0)" ng-hide="isLoggedIn()">Log In</a></li>
             </ul>
           </div>
         </div>
