@@ -13,11 +13,18 @@ app.server = http.createServer(app);
 var io = require('socket.io')(app.server);
 
 io.on('connection', function(socket){
-  console.log('a user connected');
+  console.log('a new client has connected');
 
 	socket.on('init-message', function(msg){
-		// expect room name (class)
+    // socket.join(msg.class);
 	});
+
+  socket.on('question', (question) => {
+    console.log('Received packet: ');
+    console.log(question);
+    
+    io.emit('question', question);
+  });
 });
 
 
