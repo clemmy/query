@@ -45,7 +45,7 @@ db( λ => {
       res.sendFile(path.join(__dirname, '../client/dist/index.html'));
   });
 
-	app.server.listen(process.env.PORT || 8080);
+	app.server.listen(process.env.PORT || 9001);
 
 	console.log('Started on port ${app.server.address().port}');
 });

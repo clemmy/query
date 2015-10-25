@@ -51,13 +51,27 @@ export default function() {
 	});
 
 	api.post('/login', (req, res) => {
-		// TODO: validate against database
-		var userType = 'student';  // || 'prof';
+		executeQuery('select * from HackingEDU2015 where username == "' + req.body.username + '"', (error, response) => {
+				var resp = JSON.parse(response.text);
 
-		res.json({
-			user: 'req.username',
-			role: userType,
-			authenticated: true
+				if (resp.results.length != 1) {
+					throw new Error('duplicate usernames');
+				}
+
+				var acc = resp.results[0];
+				if (acc.password === req.body.password) {
+					res.json({
+						user: acc.username,
+						role: acc.userType,
+						authenticated: true
+					});
+				} else {
+					res.json({
+						user: acc.username,
+						role: acc.userType,
+						authenticated: false
+					});
+				}
 		});
 	});
 
@@ -69,28 +83,46 @@ export default function() {
 
 			if (req.body.userRole === 'prof') {
 				req.body.accessCode = crypto.randomBytes(20).toString('hex').substring(0, 6);
-			}
 
-			request
-				.post('https://api-us.clusterpoint.com/v4/102304/HackingEDU2015')
-				.auth('clement.hoang24@gmail.com', 'ClusterpointClem123')
-				.send(req.body)
-				.end((error, response) => {
-					res.json({
-						err: error,
-						res: response
+				request
+					.post('https://api-us.clusterpoint.com/v4/102304/HackingEDU2015')
+					.auth('clement.hoang24@gmail.com', 'ClusterpointClem123')
+					.send(req.body)
+					.end((error, response) => {
+						res.json({
+							err: error,
+							res: response
+						});
 					});
+
+			} else if (req.body.userRole === 'student') {
+				executeQuery('select * from HackingEDU2015 where accessCode == "' + req.body.accessCode + '"', (error, response) => {
+					if (error) {
+						// console.log(error);
+						console.log('warning: an error has occurred, but still working.');
+					}
+
+					req.body.class = JSON.parse(response.text).results[0].class;
+					delete req.body.accessCode;
+
+					request
+						.post('https://api-us.clusterpoint.com/v4/102304/HackingEDU2015')
+						.auth('clement.hoang24@gmail.com', 'ClusterpointClem123')
+						.send(req.body)
+						.end((error, response) => {
+							res.json({
+								err: error,
+								res: response
+							});
+						});
+
 				});
+			}
 		} else {
 			res.json({
 				err: 'params do not match schema'
 			})
 		}
-	});
-
-	api.post('/users/:username/classrooms', (req, res) => {
-		// make a classroom, living under prof object, takes in 'access_code', 'classroom_name'
-
 	});
 
 	api.post('/clean', (req, res) => {
