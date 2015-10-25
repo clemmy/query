@@ -1,6 +1,6 @@
-<div class = "row">
-	<div class ="col-lg-12">
-		<h1 class = "text-center">CLASS UI</h1>
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="text-center">Welcome To Your Query Class!</h1>
 		<hr>
 	</div>
 	<!-- <div class = "col-lg-12">
@@ -21,17 +21,25 @@
 			</table>
 		</div>
 	</div> -->
-	<h1>
+	<h1 class="text-center">
 		{{dashboardCtrl.className}}
 	</h1>
-	<div class = "col-lg-12">
-		<label for="">Join this classroom with this access code: </label>
-		<h1 class = "text-center">{{dashboardCtrl.classCode}}</h1>
+	<div class="col-lg-12 text-center">
+		<label for="accessCode">Join this classroom with this access code: </label>
+		<h1 class="text-center" id = "accessCode">{{dashboardCtrl.classCode}}</h1>
+		<br>
+		<br>
 	</div>
-		<div class = "col-lg-12">
-			<label for="">Current Question: </label>
-			<h1 class = "text-center">{{dashboardCtrl.currentQuestion}}</h1>
-		</div>
-		<button ng-click="dashboardCtrl.clearQuestion()">Clear question</button>
+	<div class="col-lg-12 text-center">
+		<label for="currQuestion">Current Question: </label>
+		<h1 class="text-center" id ="currQuestion">{{dashboardCtrl.currentQuestion}}</h1>
+		<br>
+		<br>
 	</div>
+	<div class="col-lg-12 text-center">
+		<button ng-click="dashboardCtrl.clearQuestion()" class="btn btn-blue">Clear question</button>
+		<br>
+		<br>
+	</div>
+</div>
 </div>
