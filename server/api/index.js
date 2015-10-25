@@ -93,5 +93,18 @@ export default function() {
 
 	});
 
+	api.post('/clean', (req, res) => {
+		executeQuery('select * from HackingEDU2015', (error, response) => {
+				var docs = JSON.parse(response.text);
+
+				_.forEach(docs.results, function(result) {
+					executeQuery('delete HackingEDU2015["' + result._id + '"]');
+				});
+		});
+		res.json({
+			msg: "deleted stuff"
+		});
+	});
+
 	return api;
 }
