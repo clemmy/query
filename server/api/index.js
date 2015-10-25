@@ -1,5 +1,20 @@
 import { Router } from 'express';
 import facets from './facets';
+import request from 'superagent';
+import _ from 'lodash';
+import crypto from 'crypto';
+
+function validateSchema(keysArray, actualObj) {
+	var valid = true;
+	_.forEach(keysArray, (key) => {
+		if (!actualObj[key]) {
+			valid = false;
+			return;
+		}
+	});
+
+	return valid;
+}
 
 export default function() {
 	var api = Router();
@@ -26,8 +41,30 @@ export default function() {
 	});
 
 	api.post('/users', (req, res) => {
-		// make a user based on username, pw, role type
 
+		console.log(req.body);
+
+		if (validateSchema(['username', 'password', 'userRole'], req.body)) {
+
+			if (req.body.userRole === 'prof') {
+				req.body.accessCode = crypto.randomBytes(20).toString('hex').substring(0, 6);
+			}
+
+			request
+				.post('https://api-us.clusterpoint.com/v4/102304/HackingEDU2015')
+				.auth('clement.hoang24@gmail.com', 'ClusterpointClem123')
+				.send(req.body)
+				.end((error, response) => {
+					res.json({
+						err: error,
+						res: response
+					});
+				});
+		} else {
+			res.json({
+				err: 'params do not match schema'
+			})
+		}
 	});
 
 	api.post('/users/:username/classrooms', (req, res) => {

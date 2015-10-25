@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rawrApp')
-  .controller('EnrolCtrl', function () {
+  .controller('EnrolCtrl', function ($http) {
      var self = this;
 
      self.formData = {};
@@ -9,8 +9,12 @@ angular.module('rawrApp')
      self.signUp = function(e) {
        e.preventDefault();
 
-       console.log(self.formData);
-       
+      $http.post('/api/users', self.formData).then(function(response) {
+        console.log(response);
+      }, function(err) {
+        console.log(err);
+      });
+
      };
 
   });
