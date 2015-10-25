@@ -26,6 +26,7 @@ angular.module('rawrApp')
          auth.user.username = response.data.user;
          auth.user.userRole = response.data.role;
          auth.user.class = response.data.class;
+         auth.user.accessCode = response.data.accessCode;
 
        } else {
          console.log('Login failed');

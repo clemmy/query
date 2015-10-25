@@ -64,6 +64,7 @@ export default function() {
 						user: acc.username,
 						role: acc.userRole,
 						class: acc.class,
+						accessCode: acc.accessCode,
 						authenticated: true
 					});
 				} else {
@@ -71,6 +72,7 @@ export default function() {
 						user: acc.username,
 						role: acc.userRole,
 						class: acc.class,
+						accessCode: acc.accessCode,
 						authenticated: false
 					});
 				}
