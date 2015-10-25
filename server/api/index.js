@@ -29,6 +29,23 @@ export default function() {
 		});
 	});
 
+	api.post('/query', (req, res) => {
+		console.log('Hit /query');
+		console.log(req.body);
+
+		request
+			.post('https://api-us.clusterpoint.com/v4/102304/HackingEDU2015/_query')
+			.set('Content-Type', 'application/text')
+			.auth('clement.hoang24@gmail.com', 'ClusterpointClem123')
+			.send(req.body.cmd)
+			.end((error, response) => {
+				res.json({
+					err: error,
+					res: response
+				});
+			});
+	});
+
 	api.post('/login', (req, res) => {
 		// TODO: validate against database
 		var userType = 'student';  // || 'prof';
@@ -41,7 +58,7 @@ export default function() {
 	});
 
 	api.post('/users', (req, res) => {
-
+		console.log('Hit /users');
 		console.log(req.body);
 
 		if (validateSchema(['username', 'password', 'userRole'], req.body)) {
