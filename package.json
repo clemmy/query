@@ -4,7 +4,7 @@
   "description": "Starter project for an ES6 RESTful Express API",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.js --harmony --use_strict --harmony_generators",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jason Miller <jason@developit.ca>",
