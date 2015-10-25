@@ -12,6 +12,8 @@ var app = express();
 app.server = http.createServer(app);
 var io = require('socket.io')(app.server);
 
+var questionToVote = ''; //temporary var
+
 io.on('connection', function(socket){
   console.log('a new client has connected');
 
@@ -22,6 +24,8 @@ io.on('connection', function(socket){
   socket.on('question', (question) => {
     console.log('Received question packet: ');
     console.log(question);
+
+    questionToVote = question;
 
     io.emit('question', question);
   });
@@ -34,8 +38,6 @@ io.on('connection', function(socket){
   });
 });
 
-
-
 // 3rd party middleware
 app.use(cors({
 	exposedHeaders: ['Link']
@@ -44,6 +46,21 @@ app.use(cors({
 app.use(bodyParser.json({
 	limit : '100kb'
 }));
+
+app.get('/pebble/question', function (req, res) {
+  res.json(questionToVote);
+});
+
+app.post('/pebble/vote', function (req, res) {
+  console.log(req.body);
+  io.emit('vote', {
+    agree: req.body.agree
+  });
+
+  res.json({
+    msg: 'done'
+  });
+});
 
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
 
