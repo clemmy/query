@@ -62,13 +62,13 @@ export default function() {
 				if (acc.password === req.body.password) {
 					res.json({
 						user: acc.username,
-						role: acc.userType,
+						role: acc.userRole,
 						authenticated: true
 					});
 				} else {
 					res.json({
 						user: acc.username,
-						role: acc.userType,
+						role: acc.userRole,
 						authenticated: false
 					});
 				}

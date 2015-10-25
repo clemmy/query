@@ -9,7 +9,7 @@
 6 info start express-es6-rest-api@0.2.0
 7 verbose unsafe-perm in lifecycle true
 8 info express-es6-rest-api@0.2.0 Failed to exec start script
-9 verbose stack Error: express-es6-rest-api@0.2.0 start: `node index.js`
+9 verbose stack Error: express-es6-rest-api@0.2.0 start: `node index.js --harmony --use_strict --harmony_generators`
 9 verbose stack Exit status 1
 9 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:214:16)
 9 verbose stack     at emitTwo (events.js:87:13)
@@ -26,13 +26,13 @@
 14 error node v4.1.2
 15 error npm  v2.14.6
 16 error code ELIFECYCLE
-17 error express-es6-rest-api@0.2.0 start: `node index.js`
+17 error express-es6-rest-api@0.2.0 start: `node index.js --harmony --use_strict --harmony_generators`
 17 error Exit status 1
-18 error Failed at the express-es6-rest-api@0.2.0 start script 'node index.js'.
+18 error Failed at the express-es6-rest-api@0.2.0 start script 'node index.js --harmony --use_strict --harmony_generators'.
 18 error This is most likely a problem with the express-es6-rest-api package,
 18 error not with npm itself.
 18 error Tell the author that this fails on your system:
-18 error     node index.js
+18 error     node index.js --harmony --use_strict --harmony_generators
 18 error You can get their info via:
 18 error     npm owner ls express-es6-rest-api
 18 error There is likely additional logging output above.
