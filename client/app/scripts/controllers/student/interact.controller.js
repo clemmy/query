@@ -7,8 +7,6 @@ angular.module('rawrApp')
 
     console.log(auth);
 
-    // openModal();
-
     socket.emit('init-message', { class: auth.user.class });
     // socket.join(auth.user.class);
 
@@ -28,11 +26,10 @@ angular.module('rawrApp')
     };
 
     function openModal() {
-      ngDialog.open({ template: 'views/student/yesNoModal.html' });
-      // ngDialog.open({
-      //   template: '<p>my template</p>',
-      //   plain: true
-      // });
+      ngDialog.open({
+        template: 'views/student/yesNoModal.html',
+        controller: 'YesNoCtrl'
+      });
     };
 
   });
