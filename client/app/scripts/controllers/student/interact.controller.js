@@ -1,17 +1,20 @@
 'use strict';
 
 angular.module('rawrApp')
-  .controller('InteractCtrl', function (socket, auth) {
+  .controller('InteractCtrl', function (socket, auth, ngDialog) {
     var self = this;
     self.question = '';
 
     console.log(auth);
+
+    // openModal();
 
     socket.emit('init-message', { class: auth.user.class });
     // socket.join(auth.user.class);
 
     socket.on('question', function(question) {
       console.log(question);
+      openModal();
     });
 
     self.broadcastQuestion = function(e) {
@@ -23,4 +26,13 @@ angular.module('rawrApp')
         question: self.question
       });
     };
+
+    function openModal() {
+      ngDialog.open({ template: 'views/student/yesNoModal.html' });
+      // ngDialog.open({
+      //   template: '<p>my template</p>',
+      //   plain: true
+      // });
+    };
+
   });
