@@ -12,7 +12,7 @@ angular.module('rawrApp')
 
     socket.on('question', function(question) {
       console.log(question);
-      openModal(question);
+      openModal(question.question);
     });
 
     self.broadcastQuestion = function(e) {
