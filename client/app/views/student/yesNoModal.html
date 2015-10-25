@@ -3,17 +3,17 @@
 		<h2>The: Current Question</h2>
 		<hr>
 		<p>
-			What is the square root of 30 divided by 35, multiplied by the first perfect square?
+			{{ ngDialogData.question }}
 		</p>
 		<hr>
 	</div>
 	<div class="ngdialog-buttons mt">
 		<p>Good Question?</p>
 		<div class="col-md-6 text-center">
-			<button type="button" class="btn btn-blue" ng-click="next()">Yes</button>
+			<button type="button" class="btn btn-blue" ng-click="voteYes()">Yes</button>
 		</div>
 		<div class="col-md-6 text-center">
-			<button type="button" class="btn btn-blue" ng-click="next()">No</button>
+			<button type="button" class="btn btn-blue" ng-click="voteNo()">No</button>
 		</div>
 	</div>
 </div>

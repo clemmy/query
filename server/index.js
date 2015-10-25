@@ -20,10 +20,17 @@ io.on('connection', function(socket){
 	});
 
   socket.on('question', (question) => {
-    console.log('Received packet: ');
+    console.log('Received question packet: ');
     console.log(question);
-    
+
     io.emit('question', question);
+  });
+
+  socket.on('vote', (vote) => {
+    console.log('Received vote packet: ');
+    console.log(vote);
+
+    io.emit('vote', vote);
   });
 });
 

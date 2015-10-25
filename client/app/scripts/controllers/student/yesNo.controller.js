@@ -1,25 +1,31 @@
 'use strict';
 
 angular.module('rawrApp')
-  .controller('YesNoCtrl', function (socket, auth) {
+  .controller('YesNoCtrl', function (socket, auth, $scope) {
     var self = this;
 
-    self.voteYes = function() {
+    console.log($scope.ngDialogData);
+
+    $scope.voteYes = function() {
       socket.emit('vote', {
         class: auth.user.class,
         username: auth.user.username,
-        question: self.question,
+        question: $scope.ngDialogData.question,
         agree: true
       });
+
+      $scope.closeThisDialog();
     };
 
-    self.voteNo = function() {
+    $scope.voteNo = function() {
       socket.emit('vote', {
         class: auth.user.class,
         username: auth.user.username,
-        question: self.question,
+        question: $scope.ngDialogData.question,
         agree: false
       });
+
+      $scope.closeThisDialog();
     };
 
   });

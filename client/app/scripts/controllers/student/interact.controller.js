@@ -28,7 +28,10 @@ angular.module('rawrApp')
     function openModal() {
       ngDialog.open({
         template: 'views/student/yesNoModal.html',
-        controller: 'YesNoCtrl'
+        controller: 'YesNoCtrl',
+        data: {
+          question: self.question
+        }
       });
     };
 
