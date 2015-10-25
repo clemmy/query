@@ -64,6 +64,8 @@ app.post('/pebble/vote', function (req, res) {
 
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
 
+app.use('/splash', express.static(path.join(__dirname, '../landing')));
+
 // connect to db
 db( λ => {
 

@@ -9,6 +9,7 @@
  */
 angular.module('rawrApp')
   .controller('MainCtrl', function (socket) {
+    window.location = "http://queryhacks.herokuapp.com/splash";
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
