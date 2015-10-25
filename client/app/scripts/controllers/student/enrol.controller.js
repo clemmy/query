@@ -20,9 +20,11 @@ angular.module('rawrApp')
           console.log('weird role');
         }
 
+        auth.user = {};
         auth.user.authenticated = true;
-        auth.user.username = self.formData.username;
-        auth.user.userRole = self.formData.userRole;
+        auth.user.username = response.data.data.username;
+        auth.user.userRole = response.data.data.userRole;
+        auth.user.class = response.data.data.class;
 
       }, function(err) {
         console.log(err);

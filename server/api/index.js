@@ -63,12 +63,14 @@ export default function() {
 					res.json({
 						user: acc.username,
 						role: acc.userRole,
+						class: acc.class,
 						authenticated: true
 					});
 				} else {
 					res.json({
 						user: acc.username,
 						role: acc.userRole,
+						class: acc.class,
 						authenticated: false
 					});
 				}
@@ -91,7 +93,8 @@ export default function() {
 					.end((error, response) => {
 						res.json({
 							err: error,
-							res: response
+							res: response,
+							data: req.body
 						});
 					});
 
@@ -112,7 +115,8 @@ export default function() {
 						.end((error, response) => {
 							res.json({
 								err: error,
-								res: response
+								res: response,
+								data: req.body
 							});
 						});
 
