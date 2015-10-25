@@ -12,8 +12,7 @@ angular.module('rawrApp')
 
     socket.on('question', function(question) {
       console.log(question);
-      self.question = question.question
-      openModal();
+      openModal(question);
     });
 
     self.broadcastQuestion = function(e) {
@@ -26,12 +25,12 @@ angular.module('rawrApp')
       });
     };
 
-    function openModal() {
+    function openModal(questionToVote) {
       ngDialog.open({
         template: 'views/student/yesNoModal.html',
         controller: 'YesNoCtrl',
         data: {
-          question: self.question
+          question: questionToVote
         }
       });
     };
