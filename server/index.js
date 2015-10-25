@@ -47,7 +47,7 @@ db( λ => {
 
 	app.server.listen(process.env.PORT || 9001);
 
-	console.log('Started on port ${app.server.address().port}');
+	console.log('Started on port ' + app.server.address().port);
 });
 
 export default app;
