@@ -1,17 +1,19 @@
 <div class="ngdialog-content">
 	<div class="ngdialog-message">
-		<h2>Native Angular.js solution</h2>
-		<div>With ngDialog you don't need jQuery or Bootstrap to create dialogs for <code>ng-app:</code></div>
-		<ul class="mt">
-			<li>Use it in controllers, factories or directives</li>
-			<li>Create your own directives</li>
-			<li>Style all UI and templates</li>
-			<li>Configure themes</li>
-			<li>Add animations and effects</li>
-		</ul>
-		<div class="mt">Module is shipped with both <code>ngDialog</code> service and default directive.</div>
+		<h2>The: Current Question</h2>
+		<hr>
+		<p>
+			What is the square root of 30 divided by 35, multiplied by the first perfect square?
+		</p>
+		<hr>
 	</div>
 	<div class="ngdialog-buttons mt">
-		<button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="next()">►</button>
+		<p>Good Question?</p>
+		<div class="col-md-6 text-center">
+			<button type="button" class="btn btn-blue" ng-click="next()">Yes</button>
+		</div>
+		<div class="col-md-6 text-center">
+			<button type="button" class="btn btn-blue" ng-click="next()">No</button>
+		</div>
 	</div>
 </div>
