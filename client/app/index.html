@@ -38,17 +38,15 @@
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-
             <ul class="nav navbar-nav">
-              <li ng-class="{'active' : getPageSelection() == 0}">
-                <a ng-href = "#/prof/dashboard" ng-click="setPageSelection(0)" href = "javascript:void(0)">Dashboard</a>
+              <li ng-class="{'active' : getCurrentLocation() === '/prof/dashboard'}">
+                <a ng-href = "#/prof/dashboard" href = "javascript:void(0)">Dashboard</a>
               </li>
-              <li ng-class = "{'active' : getPageSelection() == 1}">
-                <a ng-href="#/student/interact" ng-click="setPageSelection(1)" href = "javascript:void(0)">Ask a Question</a>
+              <li ng-class = "{'active' : getCurrentLocation() === '/student/interact'}">
+                <a ng-href="#/student/interact" href = "javascript:void(0)">Ask a Question</a>
               </li>
-              <li ng-class = "{'active' : getPageSelection() == 2}">
-                <a ng-href="#/login" ng-click="setPageSelection(2)" href = "javascript:void(0)">Log In</a></li>
+              <li ng-class = "{'active' : getCurrentLocation() === '/login'}">
+                <a ng-href="#/login" href = "javascript:void(0)">Log In</a></li>
             </ul>
           </div>
         </div>
@@ -101,14 +99,6 @@
         <script src="scripts/controllers/student/enrol.controller.js"></script>
         <script src="scripts/controllers/student/interact.controller.js"></script>
         <!-- endbuild -->
-        <script>
-        $scope.getPageSelection = function() {
-          return MainCtrl.getPageSelection();
-        };
 
-        $scope.setPageSelection = function(index) {
-          MainCtrl.setPageSelection(index);
-        };
-        </script>
 </body>
 </html>

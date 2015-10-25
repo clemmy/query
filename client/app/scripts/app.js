@@ -51,4 +51,9 @@ angular
   })
   .factory('socket', function (socketFactory) {
     return socketFactory();
+  })
+  .run(function($rootScope, $location) {
+    $rootScope.getCurrentLocation = function() {
+      return $location.path();
+    }
   });
