@@ -9,31 +9,20 @@
           <fieldset>
             <div class="form-group text-center">
               <label for = "identity">Your Identity</label><br>
-              <select ng-model="enrolCtrl.formData.userRole" id = "identity">
-                <option value = "1">Professor</option>
-                <option value = "2">Student</option>
+              <select ng-init="enrolCtrl.formData.userRole='2'" ng-model="enrolCtrl.formData.userRole" id = "identity">
+                <option value = "prof">Professor</option>
+                <option value = "student" selected>Student</option>
               </select>
-
-<!--
-              <ul class="cd-form-list" ng-model = "enrolCtrl.formData.userRole" id>
-               <li>
-                 <input type="radio" name="radio-button" id="identity1" checked>
-                 <label for="identity1">Professor</label>
-               </li>
-               <li>
-                 <input type="radio" name="radio-button" id="identity2">
-                 <label for="identity2">Student</label>
-               </li>
-             </ul>
-  -->
-
             </div>
-            <div ng-if="enrolCtrl.formData.userRole === '1'">
+
+            <div ng-if="enrolCtrl.formData.userRole === 'student'">
               <div class="form-group text-center">
-                <label for = "accesscode">Create Your Access Code</label>
+                <label for = "accesscode">Enter Your Access Code</label>
                 <input type="text" class="form-control" id="accesscode" ng-model="enrolCtrl.formData.accesscode" placeholder="ex. Enter 6 Digit Access Code" autofocus required>
               </div>
+            </div>
 
+            <div ng-if="enrolCtrl.formData.userRole === 'prof'">
               <div class="form-group text-center">
                 <label for = "class">Your Class Name</label>
                 <input type="text" class="form-control" id="class" ng-model="enrolCtrl.formData.class" placeholder="Your class" autofocus required>
@@ -50,7 +39,7 @@
             </div>
 
             <!-- Change this to a button or input when using this as a form -->
-            <center><button type="submit" class="btn btn-blue">Submit</button></center>
+            <center><button type="submit" class="btn btn-blue" ng-click="enrolCtrl.signUp($event)">Submit</button></center>
             <!-- <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a> -->
           </fieldset>
         </form>

@@ -6,4 +6,11 @@ angular.module('rawrApp')
 
      self.formData = {};
 
+     self.signUp = function(e) {
+       e.preventDefault();
+
+       console.log(self.formData);
+       
+     };
+
   });
