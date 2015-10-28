@@ -1,0 +1,47 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "joseph@jhylee.com",
+    "longName": "HackingEDU Classroom App",
+    "projectType": "pebblejs",
+    "resources": {
+        "media": [
+            {
+                "file": "images/menu_icon.png",
+                "menuIcon": true,
+                "name": "IMAGE_MENU_ICON",
+                "type": "png"
+            },
+            {
+                "file": "images/logo_splash.png",
+                "name": "IMAGE_LOGO_SPLASH",
+                "type": "png"
+            },
+            {
+                "file": "images/tile_splash.png",
+                "name": "IMAGE_TILE_SPLASH",
+                "type": "png"
+            },
+            {
+                "file": "fonts/UbuntuMono-Regular.ttf",
+                "name": "MONO_FONT_14",
+                "type": "font"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "HackingEDU Classroom App",
+    "targetPlatforms": [
+        "aplite",
+        "basalt"
+    ],
+    "uuid": "5c246c13-b1b2-4633-97f2-1b9e8b7a6289",
+    "versionCode": 1,
+    "versionLabel": "1.2",
+    "watchapp": {
+        "hiddenApp": false,
+        "watchface": false
+    }
+}
