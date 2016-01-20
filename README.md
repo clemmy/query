@@ -3,3 +3,5 @@ This is project designed at the HackingEDU Hackathon 2015 in San Fransisco, Cali
 For a demo, please refer to (hopefully its live lol): https://queryhacks.herokuapp.com/
 
 Pebble App: https://github.com/jhylee/PebbleApplication
+
+Devpost: http://devpost.com/software/query-sctlva
